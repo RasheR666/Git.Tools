@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly : AssemblyTitle("Excel.To.Text.Converter")]
+[assembly : AssemblyTitle("Excel.To.Text.Converter.Core")]
 [assembly : AssemblyDescription("")]
 [assembly : AssemblyConfiguration("")]
 [assembly : AssemblyCompany("")]
-[assembly : AssemblyProduct("Excel.To.Text.Converter")]
+[assembly : AssemblyProduct("Excel.To.Text.Converter.Core")]
 [assembly : AssemblyCopyright("Copyright ©  2018")]
 [assembly : AssemblyTrademark("")]
 [assembly : AssemblyCulture("")]
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
-[assembly : Guid("ffa92112-a827-4a8d-b20e-2c38a0bd3887")]
+[assembly : Guid("eb509402-bd6d-4c4e-9893-9e3fb134a21c")]
 
 // Version information for an assembly consists of the following four values:
 //
