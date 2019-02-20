@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Writers\FileWriter.cs" />
     <Compile Include="Xlsx\XlsxDocument.cs" />
     <Compile Include="Xlsx\XlsxDocumentReader.cs" />
     <Compile Include="Formatters\CenterAlignmentTextFormatter.cs" />

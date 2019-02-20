@@ -7,7 +7,7 @@ using Excel.To.Text.Converter.Core.Xlsx;
 
 namespace Excel.To.Text.Converter
 {
-	class Program
+	internal class Program
 	{
 		private static void Main(string[] args)
 		{
