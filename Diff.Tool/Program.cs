@@ -27,7 +27,7 @@ namespace Diff.Tool
 			}
 			else
 			{
-				TortoiseGitMerge.Compare(beforeFilepath, afterFilepath);
+				ShowDiff(beforeFilepath, afterFilepath);
 			}
 		}
 
@@ -44,7 +44,7 @@ namespace Diff.Tool
 
 			ConvertXlsxToTextFile(beforeFilepath, beforeTextFile);
 			ConvertXlsxToTextFile(afterFilepath, afterTextFile);
-			
+
 			TortoiseGitMerge.Compare(beforeTextFile, afterTextFile);
 		}
 
@@ -75,6 +75,18 @@ namespace Diff.Tool
 			var pandocExePath = Pandoc.GetExePath();
 			var process = Process.Start(pandocExePath, $"-s \"{docxFilepath}\" -t markdown -o \"{txtFilePath}\"");
 			process?.WaitForExit();
+		}
+
+		private static void ShowDiff(string beforeFilepath, string afterFilepath)
+		{
+			var dateTime = DateTime.Now;
+			var beforeFile = GetFilePathInTempDirectory($"before.{ToString(dateTime)}{Path.GetExtension(beforeFilepath)}");
+			var afterFile = GetFilePathInTempDirectory($"after.{ToString(dateTime)}{Path.GetExtension(afterFilepath)}");
+
+			File.Copy(beforeFilepath, beforeFile);
+			File.Copy(afterFilepath, afterFile);
+
+			TortoiseGitMerge.Compare(beforeFile, afterFile);
 		}
 
 		private static string GetFilePathInTempDirectory(string filename)
