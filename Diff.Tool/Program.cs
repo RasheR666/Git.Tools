@@ -21,7 +21,11 @@ namespace Diff.Tool
 			{
 				ShowXlsxDiff(beforeFilepath, afterFilepath);
 			}
-			else if(beforeFileExtension == docx && afterFileExtension == docx)
+			else if(beforeFileExtension == xlsm && afterFileExtension == xlsm)
+			{
+				ShowXlsxDiff(beforeFilepath, afterFilepath);
+			}
+            else if(beforeFileExtension == docx && afterFileExtension == docx)
 			{
 				ShowDocxDiff(beforeFilepath, afterFilepath);
 			}
@@ -73,7 +77,7 @@ namespace Diff.Tool
 		private static void ConvertDocxToTextFile(string docxFilepath, string txtFilePath)
 		{
 			var pandocExePath = Pandoc.GetExePath();
-			var process = Process.Start(pandocExePath, $"-s \"{docxFilepath}\" -t markdown -o \"{txtFilePath}\"");
+			var process = Process.Start(pandocExePath, $"-s \"{docxFilepath}\" -t markdown -o \"{txtFilePath}\" --wrap=none");
 			process?.WaitForExit();
 		}
 
@@ -100,6 +104,7 @@ namespace Diff.Tool
 		}
 
 		private const string xlsx = ".xlsx";
-		private const string docx = ".docx";
+		private const string xlsm = ".xlsm";
+        private const string docx = ".docx";
 	}
 }
